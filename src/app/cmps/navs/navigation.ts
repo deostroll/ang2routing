@@ -9,6 +9,8 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 })
 
 export class Navigation {
+  view: string;
+
   constructor() {
     console.log('Navigation');
   }
@@ -28,4 +30,8 @@ export class Navigation {
   // routerOnActivate(next: any, prev: any){
   //   console.log('next:', next, 'prev:', prev);
   // }
+
+  setView(viewName: string) {
+    this.view = viewName;
+  }
 }

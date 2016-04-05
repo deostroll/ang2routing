@@ -1,5 +1,5 @@
 <ul class="nav nav-pills">
-  <li role="presentation" class="active"><a [routerLink]="['Home']">Home</a></li>
-  <li role="presentation"><a [routerLink]="['Profile']">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
+  <li role="presentation" class="active"><a [routerLink]="['Home']" [ngClass]="{active: view === 'home'}">Home</a></li>
+  <li role="presentation"><a [routerLink]="['Profile']" [ngClass]="{active: view === 'profile'}">Profile</a></li>
+  <li role="presentation"><a [routerLink]="['Messages']" [ngClass]="{active: view === 'messages'}">Messages</a></li>
 </ul>

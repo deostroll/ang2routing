@@ -1,0 +1,33 @@
+<h3>Your Reminders</h3>
+<em *ngIf="!reminders.length">No reminders yet...! Your good.</em>
+<table class="table table-condensed table-striped" *ngIf="reminders.length">
+  <thead>
+    <tr>
+      <th>
+
+      </th>
+      <th>
+        Reminder
+      </th>
+      <th>
+        Created
+      </th>
+      <th>
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="#item of reminders">
+      <td>
+        <input type="checkbox">
+      </td>
+      <td>
+        {{ item.title }}
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

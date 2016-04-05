@@ -20,6 +20,9 @@ gulp.task('copy:deps', function(){
     'node_modules/angular2/bundles/router.js',
     'node_modules/rxjs/bundles/Rx.js',
     'node_modules/systemjs/dist/system.js',
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/jquery/dist/jquery.js',
   ]).pipe(gulp.dest('dist/vendor'));
 });
 

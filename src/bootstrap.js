@@ -7,6 +7,6 @@ System.config({
   }
 });
 
-System.import('./app.js').catch(function(err){
+System.import('./main.js').catch(function(err){
   console.error(err);
 });

@@ -1,5 +1,11 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, Route, ROUTER_DIRECTIVES} from 'angular2/router';
+import {
+  RouteConfig,
+  Route,
+  ROUTER_DIRECTIVES,
+  CanActivate,
+  OnActivate
+} from 'angular2/router';
 import {List} from './cmps/list/list';
 import {Navigation} from './cmps/navs/navigation';
 import {Profile} from './cmps/profile/profile';
@@ -22,8 +28,16 @@ import {Profile} from './cmps/profile/profile';
   new Route({ name: 'Home',     path:'/home',     component: List,    useAsDefault: true  }),
   new Route({ name: 'Profile',  path:'/profile',  component: Profile                      })
 ])
-export class ReminderApp {
-  constructor(){
+@CanActivate((n, p) => {
+  console.log('CanActivate');
+  return true;
+})
+export class ReminderApp implements OnActivate {
+  constructor() {
     console.log('ReminderApp');
+  }
+
+  routerOnActivate() {
+    console.log('OnActivate');
   }
 }

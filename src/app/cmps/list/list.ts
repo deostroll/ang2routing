@@ -9,15 +9,18 @@ import {RouterLink, Router, OnActivate} from 'angular2/router';
   directives: [RouterLink]
 })
 export class ReminderInput implements OnActivate{
+  title: string = '';
+  note: string = '';
 
   constructor(private svc: RemSvc, private router: Router, private nav: NavSvc) {
     console.log('ReminderInput');
     // console.log(router);
   }
 
-  addReminder(title: string, note: string) {
-    this.svc.add(title, note);
+  addReminder() {
+    this.svc.add(this.title, this.note);
     this.router.navigate(['Home']);
+    // console.log(this.title, this.note);
   }
 
   routerOnActivate() {

@@ -10,6 +10,7 @@ import {List, ReminderInput} from './cmps/list/list';
 import {Navigation} from './cmps/navs/navigation';
 import {Profile} from './cmps/profile/profile';
 import {Messages} from './cmps/messages/messages';
+import {RemSvc} from './svcs/RemSvc';
 
 @Component({
   selector: 'reminder-app',
@@ -32,8 +33,11 @@ import {Messages} from './cmps/messages/messages';
   new Route({ name: 'Add',      path:'/add',      component: ReminderInput                })
 ])
 export class ReminderApp {
-  constructor() {
+  constructor(rem: RemSvc) {
     console.log('ReminderApp');
+    rem.add('groceries', 'milk, biscuits, bread');
+    rem.add('pay bill', 'account number: 223322334');
+
   }
 
   // routerOnActivate() {

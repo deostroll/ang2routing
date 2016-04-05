@@ -12,6 +12,8 @@ class Reminder {
 @Injectable()
 export class RemSvc {
   reminders: Array<Reminder> = [];
+  messages: Array<string> = [];
+
   constructor() {
 
   }
@@ -24,6 +26,7 @@ export class RemSvc {
     reminder.created = reminder.timestamp = new Date();
     reminder.isDone = false;
     //reminder
+    this._addMessage('added reminder with id: ' + reminder.id);
     return this.reminders.push(reminder);
   }
 
@@ -42,4 +45,25 @@ export class RemSvc {
 
     return idx;
   }
+
+  _addMessage(msg: string) {
+    var dt = getTimeString(new Date());
+    this.messages.push(dt + ' : ' + msg);
+  }
+}
+
+function getTimeString(dt: Date) {
+  var pad = function(n: number) {
+    if(n < 10) return '0' + n;
+    return '' + n;
+  };
+
+  var y = dt.getFullYear(),
+    m = pad(dt.getMonth() + 1),
+    d = pad(dt.getDate()),
+    h = pad(dt.getHours()),
+    m = pad(dt.getMinutes()),
+    s = pad(dt.getSeconds());
+
+  return `${y}${m}${d} - ${h}:${m}:${s}`;
 }

@@ -1,19 +1,29 @@
 import {Injectable} from 'angular2/core';
 
+class Reminder {
+  title: string;
+  id: number;
+  notes: string;
+  created: Date;
+  timestamp: Date;
+  isDone: boolean;
+}
+
 @Injectable()
 export class RemSvc {
-  reminders: Array<Object> = [];
+  reminders: Array<Reminder> = [];
   constructor() {
 
   }
   add(title: string, note:string){
     var id = this._newId();
-    var reminder = {};
+    var reminder = new Reminder();
     reminder.id = id;
     reminder.title = title;
     reminder.notes = note;
     reminder.created = reminder.timestamp = new Date();
     reminder.isDone = false;
+    //reminder
     return this.reminders.push(reminder);
   }
 
@@ -27,8 +37,8 @@ export class RemSvc {
     }
 
     do {
-      idx = Math.floor(Math.Random()* 15+ 1);
-    } while(exists(idx));    
+      idx = Math.floor(Math.random()* 15+ 1);
+    } while(exists(idx));
 
     return idx;
   }

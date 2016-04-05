@@ -1,5 +1,6 @@
 <h3>Your Reminders</h3>
 <em *ngIf="!reminders.length">No reminders yet...! Your good.</em>
+<a [routerLink]="['Add']" class="btn btn-default">Add</a>
 <table class="table table-condensed table-striped" *ngIf="reminders.length">
   <thead>
     <tr>
@@ -26,7 +27,7 @@
         {{ item.title }}
       </td>
       <td>
-
+        {{item.created}}
       </td>
     </tr>
   </tbody>

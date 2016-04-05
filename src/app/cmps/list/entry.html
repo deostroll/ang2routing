@@ -1,12 +1,15 @@
 <h3>Enter Your Reminder</h3>
-<div style="width:30%; margin-top: 25px">
-  <div class="input-group">
+<div style="width:55%; margin-top: 25px">
+
+  <div class="form-group">
     <label>Title:</label>
     <input type="text" class="form-control" #title/>
   </div>
-  <div class="input-group">
+
+  <div class="form-group">
     <label>Notes:</label>
-    <textarea #note rows="8" cols="40"></textarea>
+    <textarea #note rows="8" cols="40" class="form-control"></textarea>
   </div>
   <button type="button" class="btn btn-primary" (click)="addReminder(title.value, note.value)" [disabled]="title.value.trim().length > 0 && note.value.trim().length > 0">Add</button>
+  <a [routerLink]="['Home']">Cancel</a>
 </div>

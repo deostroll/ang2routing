@@ -6,9 +6,10 @@ import {
   // CanActivate,
   // OnActivate
 } from 'angular2/router';
-import {List} from './cmps/list/list';
+import {List, ReminderInput} from './cmps/list/list';
 import {Navigation} from './cmps/navs/navigation';
 import {Profile} from './cmps/profile/profile';
+import {Messages} from './cmps/messages/messages';
 
 @Component({
   selector: 'reminder-app',
@@ -26,7 +27,9 @@ import {Profile} from './cmps/profile/profile';
 })
 @RouteConfig([
   new Route({ name: 'Home',     path:'/home',     component: List,    useAsDefault: true  }),
-  new Route({ name: 'Profile',  path:'/profile',  component: Profile                      })
+  new Route({ name: 'Profile',  path:'/profile',  component: Profile                      }),
+  new Route({ name: 'Messages', path:'/messages', component: Messages                     }),
+  new Route({ name: 'Add',      path:'/add',      component: ReminderInput                })
 ])
 export class ReminderApp {
   constructor() {

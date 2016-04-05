@@ -6,6 +6,6 @@ import {Component} from 'angular2/core';
 export class List {
   reminders: Array<any> = []; // TODO: change type
   constructor(){
-    console.log('hello');
+    console.log('List');
   }
 }

@@ -4,4 +4,8 @@ import {Component} from 'angular2/core';
   selector: 'navs',
   templateUrl: 'app/cmps/navs/links.html'
 })
-export class Navigation{}
+export class Navigation {
+  constructor(){
+    console.log('Navigation');
+  }
+}

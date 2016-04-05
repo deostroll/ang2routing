@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, Route, ROUTER_DIRECTIVES} from 'angular2/router';
 import {List} from './cmps/list/list';
-// import {Navigation} from './cmps/navs/navigation';
+import {Navigation} from './cmps/navs/navigation';
 
 @Component({
   selector: 'reminder-app',
@@ -9,12 +9,12 @@ import {List} from './cmps/list/list';
   <div class="container">
     <h1>Reminders</h1>
     <hr/>
-    <navs></navs>
+    <navs></navs>    
     <router-outlet></router-outlet>
   </div>
   `,
-  // directives: [ROUTER_DIRECTIVES, Navigation]
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, Navigation]
+  // directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
   new Route({ name: 'Home', path:'/home', component: List, useAsDefault: true})

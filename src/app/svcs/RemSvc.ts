@@ -8,10 +8,10 @@ class Reminder {
   timestamp: Date;
   isDone: boolean;
 
-  set(done: boolean) {
-    this.isDone = done;
-    this.timestamp = new Date();
-  }
+  // set(done: boolean) {
+  //   this.isDone = done;
+  //   this.timestamp = new Date();
+  // }
 }
 
 @Injectable()

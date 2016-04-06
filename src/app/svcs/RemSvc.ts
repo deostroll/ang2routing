@@ -7,6 +7,10 @@ class Reminder {
   created: Date;
   timestamp: Date;
   isDone: boolean;
+
+  set(done: boolean) {
+    this.isDone = done;
+  }
 }
 
 @Injectable()

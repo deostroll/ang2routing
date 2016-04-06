@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RemSvc} from './../../svcs/RemSvc';
 import {NavSvc, NavigationComponent} from './../../svcs/NavSvc';
 import {RouterLink, Router} from 'angular2/router';
+import {StrikedText} from './../stext/stext';
 
 @Component({
   selector: 'rem-input',
@@ -31,16 +32,16 @@ export class ReminderInput {
 
 @Component({
   templateUrl: 'app/cmps/list/list.html',
-  directives: [RouterLink]
+  directives: [RouterLink, StrikedText]
 })
 // export class List implements OnActivate {
 export class List extends NavigationComponent {
   reminders: Array<any> = []; // TODO: change type
-  
+
   constructor(svc: RemSvc, nav: NavSvc){
     super(nav, "home");
     console.log('List');
     this.reminders = svc.reminders;
   }
-  
+
 }

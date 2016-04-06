@@ -21,10 +21,10 @@
   <tbody>
     <tr *ngFor="#item of reminders">
       <td>
-        <input type="checkbox">
+        <input #chk type="checkbox" (click)="item.set(chk.checked)">
       </td>
       <td>
-        {{ item.title }}
+        <stext [strike]="item.isDone" [text]="item.title"></stext>
       </td>
       <td>
         {{item.created | date}}

@@ -10,6 +10,7 @@ class Reminder {
 
   set(done: boolean) {
     this.isDone = done;
+    this.timestamp = new Date();
   }
 }
 
@@ -53,6 +54,11 @@ export class RemSvc {
   _addMessage(msg: string) {
     var dt = getTimeString(new Date());
     this.messages.push(dt + ' : ' + msg);
+  }
+
+  markItemDone(done: boolean, reminder: Reminder) {
+    reminder.isDone = done;
+    this._addMessage('updated reminder ' + reminder.id + ' with done: '+ done)
   }
 }
 

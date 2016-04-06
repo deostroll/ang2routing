@@ -21,7 +21,7 @@
   <tbody>
     <tr *ngFor="#item of reminders">
       <td>
-        <input #chk type="checkbox" (click)="item.set(chk.checked)">
+        <input #chk type="checkbox" (click)="markItemDone(item, chk.checked)">
       </td>
       <td>
         <stext [strike]="item.isDone" [text]="item.title"></stext>

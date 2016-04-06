@@ -38,10 +38,14 @@ export class ReminderInput {
 export class List extends NavigationComponent {
   reminders: Array<any> = []; // TODO: change type
 
-  constructor(svc: RemSvc, nav: NavSvc){
+  constructor(private svc: RemSvc, nav: NavSvc){
     super(nav, "home");
     console.log('List');
     this.reminders = svc.reminders;
+  }
+
+  markItemDone(item: any, done: boolean) {
+    this.svc.markItemDone(done, item);
   }
 
 }

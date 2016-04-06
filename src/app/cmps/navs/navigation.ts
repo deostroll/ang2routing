@@ -16,10 +16,11 @@ export class Navigation {
 
   constructor(private nav: NavSvc) {
     console.log('Navigation');
-    nav.navChange.subscribe((vw)=> {
-      console.log('nav change:', vw);
-      this.view = vw;
-    });
+    // nav.navChange.subscribe((vw)=> {
+    //   console.log('nav change:', vw);
+    //   this.view = vw;
+    // });
+    nav.subscribe(route => this.view = route);
   }
 
   // routerCanReuse() {

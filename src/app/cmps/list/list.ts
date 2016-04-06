@@ -1,14 +1,14 @@
 import {Component} from 'angular2/core';
 import {RemSvc} from './../../svcs/RemSvc';
-import {NavSvc} from './../../svcs/NavSvc';
-import {RouterLink, Router, OnActivate} from 'angular2/router';
+import {NavSvc, NavigationComponent} from './../../svcs/NavSvc';
+import {RouterLink, Router} from 'angular2/router';
 
 @Component({
   selector: 'rem-input',
   templateUrl: 'app/cmps/list/entry.html',
   directives: [RouterLink]
 })
-export class ReminderInput implements OnActivate{
+export class ReminderInput {
   title: string = '';
   note: string = '';
 
@@ -23,25 +23,24 @@ export class ReminderInput implements OnActivate{
     // console.log(this.title, this.note);
   }
 
-  routerOnActivate() {
-    console.log('ReminderInput OnActivate');
-    this.nav.navChange.emit('input');
-  }
+  // routerOnActivate() {
+  //   console.log('ReminderInput OnActivate');
+  //   this.nav.navChange.emit('input');
+  // }
 };
 
 @Component({
   templateUrl: 'app/cmps/list/list.html',
   directives: [RouterLink]
 })
-export class List implements OnActivate {
+// export class List implements OnActivate {
+export class List extends NavigationComponent {
   reminders: Array<any> = []; // TODO: change type
-  constructor(svc: RemSvc, private nav: NavSvc){
+  
+  constructor(svc: RemSvc, nav: NavSvc){
+    super(nav, "home");
     console.log('List');
     this.reminders = svc.reminders;
   }
-
-  routerOnActivate() {
-    console.log('List OnActivate');
-    this.nav.navChange.emit('home');
-  }
+  
 }

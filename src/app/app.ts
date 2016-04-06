@@ -33,12 +33,12 @@ import {RemSvc} from './svcs/RemSvc';
   new Route({ name: 'Add',      path:'/add',      component: ReminderInput                })
 ])
 export class ReminderApp {
-  constructor(rem: RemSvc) {
-    console.log('ReminderApp');
-    rem.add('groceries', 'milk, biscuits, bread');
-    rem.add('pay bill', 'account number: 223322334');
+  // constructor(rem: RemSvc) {
+  //   console.log('ReminderApp');
+  //   rem.add('groceries', 'milk, biscuits, bread');
+  //   rem.add('pay bill', 'account number: 223322334');
 
-  }
+  // }
 
   // routerOnActivate() {
   //   console.log('OnActivate');

@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {OnActivate} from 'angular2/router';
-import {NavSvc} from './../../svcs/NavSvc';
+import {NavSvc, NavigationComponent} from './../../svcs/NavSvc';
 import {RemSvc} from './../../svcs/RemSvc';
 
 @Component({
@@ -10,13 +10,10 @@ import {RemSvc} from './../../svcs/RemSvc';
     </ul>
   `
 })
-export class Messages implements OnActivate{
+export class Messages extends NavigationComponent {
   logs: Array<string>;
-  constructor(private nav: NavSvc, rem: RemSvc) {
+  constructor(nav: NavSvc, rem: RemSvc) {
+    super(nav, "messages");
     this.logs = rem.messages;
-  }
-
-  routerOnActivate() {
-    this.nav.navChange.emit('messages');
-  }
+  }  
 }
